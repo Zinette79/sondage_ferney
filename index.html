@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sondage Élise - Ville de Ferney-Voltaire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- supabase js client library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Élise, courrier et documents : votre avis compte</h1>
+      <p>Sondage anonyme auprès des agents de la Ville de Ferney-Voltaire — Septembre 2026</p>
+      <p>Ce questionnaire est entièrement anonyme. Comptez environ 5 à 7 minutes.</p>
+    </header>
+
+    <form id="survey-form">
+      <!-- section 1 -->
+      <h2>1. Votre usage d'Élise</h2>
+      
+      <div class="question-card">
+        <h3>À quelle fréquence utilisez-vous Élise ?</h3>
+        <div class="option-group">
+          <label><input type="radio" name="frequence" value="Tous les jours" required> Tous les jours</label>
+          <label><input type="radio" name="frequence" value="Plusieurs fois par semaine"> Plusieurs fois par semaine</label>
+          <label><input type="radio" name="frequence" value="Occasionnellement"> Occasionnellement</label>
+          <label><input type="radio" name="frequence" value="Jamais"> Jamais</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>Quelles fonctions utilisez-vous dans Élise ? (plusieurs réponses possibles)</h3>
+        <div class="option-group">
+          <label><input type="checkbox" name="fonctions" value="Réception et enregistrement du courrier"> Réception et enregistrement du courrier</label>
+          <label><input type="checkbox" name="fonctions" value="Attribution / réaffectation à un agent ou un service"> Attribution / réaffectation à un agent ou un service</label>
+          <label><input type="checkbox" name="fonctions" value="Recherche d'un courrier ou d'un dossier"> Recherche d'un courrier ou d'un dossier</label>
+          <label><input type="checkbox" name="fonctions" value="Rédaction de réponse"> Rédaction de réponse</label>
+          <label><input type="checkbox" name="fonctions" value="Validation / signature de circuit"> Validation / signature de circuit</label>
+          <label><input type="checkbox" name="fonctions" value="Classement ou archivage"> Classement ou archivage</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>Dans quel pôle ou secteur travaillez-vous ?</h3>
+        <div class="option-group">
+          <label><input type="radio" name="pole" value="Administration générale, finances, RH" required> Administration générale, finances, ressources humaines</label>
+          <label><input type="radio" name="pole" value="Services techniques, urbanisme, cadre de vie"> Services techniques, urbanisme, cadre de vie</label>
+          <label><input type="radio" name="pole" value="Action sociale, enfance, affaires scolaires"> Action sociale, enfance, affaires scolaires</label>
+          <label><input type="radio" name="pole" value="Culture, sport, vie associative"> Culture, sport, vie associative</label>
+          <label><input type="radio" name="pole" value="Police municipale, sécurité"> Police municipale, sécurité</label>
+          <label><input type="radio" name="pole" value="Autre / non précisé"> Autre / je préfère ne pas préciser</label>
+        </div>
+      </div>
+
+      <!-- section 2 -->
+      <h2>2. Ergonomie et facilité d'usage</h2>
+
+      <div class="question-card">
+        <h3>Globalement, à quel point Élise est-il facile à utiliser ? (1 = très difficile, 5 = très facile)</h3>
+        <div class="rating-group">
+          <div class="rating-option"><input type="radio" name="ergonomie_note" value="1" required><label>1</label></div>
+          <div class="rating-option"><input type="radio" name="ergonomie_note" value="2"><label>2</label></div>
+          <div class="rating-option"><input type="radio" name="ergonomie_note" value="3"><label>3</label></div>
+          <div class="rating-option"><input type="radio" name="ergonomie_note" value="4"><label>4</label></div>
+          <div class="rating-option"><input type="radio" name="ergonomie_note" value="5"><label>5</label></div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>À quel point est-il facile de retrouver un courrier ou un dossier ? (1 = très difficile, 5 = très facile)</h3>
+        <div class="rating-group">
+          <div class="rating-option"><input type="radio" name="recherche_note" value="1" required><label>1</label></div>
+          <div class="rating-option"><input type="radio" name="recherche_note" value="2"><label>2</label></div>
+          <div class="rating-option"><input type="radio" name="recherche_note" value="3"><label>3</label></div>
+          <div class="rating-option"><input type="radio" name="recherche_note" value="4"><label>4</label></div>
+          <div class="rating-option"><input type="radio" name="recherche_note" value="5"><label>5</label></div>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>Qu'appréciez-vous dans Élise ? Qu'est-ce qui fonctionne bien pour vous ?</h3>
+        <div class="option-group">
+          <label><input type="checkbox" name="points_forts" value="Recherche rapide"> La recherche rapide d'un document ou d'un courrier</label>
+          <label><input type="checkbox" name="points_forts" value="Suivi des dossiers"> Le suivi des dossiers et la traçabilité des actions</label>
+          <label><input type="checkbox" name="points_forts" value="Télétravail"> La possibilité de travailler à distance / en télétravail</label>
+          <label><input type="checkbox" name="points_forts" value="Intégration bureautique"> L'intégration avec les outils bureautiques (Word, Outlook…)</label>
+          <label><input type="checkbox" name="points_forts" value="Stabilité"> La stabilité de la solution</label>
+          <label><input type="checkbox" name="points_forts" value="Sécurité"> La sécurité et la gestion des droits d'accès</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>Quelles difficultés rencontrez-vous ?</h3>
+        <div class="option-group">
+          <label><input type="checkbox" name="difficultes" value="Lenteur"> Le logiciel est lent</label>
+          <label><input type="checkbox" name="difficultes" value="Circuits compliqués"> Les circuits de validation sont trop compliqués</label>
+          <label><input type="checkbox" name="difficultes" value="Manque de formation"> Je n'ai pas reçu assez de formation ou d'accompagnement</label>
+          <label><input type="checkbox" name="difficultes" value="Fonctions difficiles à trouver"> Certaines fonctions sont difficiles à trouver</label>
+          <label><input type="checkbox" name="difficultes" value="Bugs récurrents"> Des bugs ou blocages reviennent régulièrement</label>
+        </div>
+      </div>
+
+      <!-- section 3 -->
+      <h2>3. Fonctionnalités et attentes</h2>
+
+      <div class="question-card">
+        <h3>Quelles fonctionnalités vous manquent aujourd'hui dans Élise ?</h3>
+        <div class="option-group">
+          <label><input type="checkbox" name="fonctions_manquantes" value="Accès mobile"> Un accès plus simple depuis un smartphone ou une tablette</label>
+          <label><input type="checkbox" name="fonctions_manquantes" value="Signature électronique"> La signature électronique intégrée</label>
+          <label><input type="checkbox" name="fonctions_manquantes" value="Recherche performante"> Une recherche plus performante (filtres, mots-clés, pièces jointes)</label>
+          <label><input type="checkbox" name="fonctions_manquantes" value="Tableaux de bord"> Des tableaux de bord ou statistiques de suivi avancés</label>
+          <label><input type="checkbox" name="fonctions_manquantes" value="Intégration email"> Une meilleure intégration avec la messagerie électronique</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>Au-delà du courrier, quels types de documents souhaiteriez-vous voir gérés en priorité ?</h3>
+        <textarea name="autres_documents" rows="3" placeholder="Ex: RH, marchés publics, urbanisme, notes internes..."></textarea>
+      </div>
+
+      <!-- section 4 -->
+      <h2>4. Vers une GED et moins de papier</h2>
+
+      <div class="question-card">
+        <h3>Êtes-vous favorable à une évolution vers un outil de gestion électronique des documents plus large ?</h3>
+        <div class="option-group">
+          <label><input type="radio" name="favorable_ged" value="Oui, tout à fait" required> Oui, tout à fait</label>
+          <label><input type="radio" name="favorable_ged" value="Plutôt oui"> Plutôt oui</label>
+          <label><input type="radio" name="favorable_ged" value="Plutôt non"> Plutôt non</label>
+          <label><input type="radio" name="favorable_ged" value="Non, cela m'inquiète"> Non, cela m'inquiète</label>
+        </div>
+      </div>
+
+      <div class="question-card">
+        <h3>Qu'est-ce qui vous rassurerait ou vous inquiéterait dans un usage plus numérique ?</h3>
+        <textarea name="remarques_ged" rows="3" placeholder="Vos réflexions..."></textarea>
+      </div>
+
+      <div class="question-card">
+        <h3>Seriez-vous volontaire pour tester un nouvel outil au sein d'un groupe pilote ?</h3>
+        <div class="option-group">
+          <label><input type="radio" name="groupe_pilote" value="Oui" required> Oui</label>
+          <label><input type="radio" name="groupe_pilote" value="Non"> Non</label>
+          <label><input type="radio" name="groupe_pilote" value="Je ne sais pas encore"> Je ne sais pas encore</label>
+        </div>
+      </div>
+
+<!-- submission response notification box -->
+<div id="status-message" style="display: none; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-weight: bold;"></div>
+
+<button type="submit" class="btn-submit">Envoyer mes réponses anonymes</button>
+     
+    </form>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script type="module" src="js/survey.js"></script>
+</body>
+</html>

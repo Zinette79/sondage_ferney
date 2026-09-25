@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Résultats Sondage Élise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- supabase js client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- chart.js library for graph visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .grid-charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .chart-card {
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .login-card {
+      max-width: 400px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- login form section -->
+    <div id="login-section" class="question-card login-card">
+      <h2 style="color: var(--primary);">Connexion Admin</h2>
+      <form id="login-form">
+        <label>Email</label>
+        <input type="text" id="admin-email" required placeholder="admin@ferney-voltaire.fr">
+        <label style="margin-top: 10px; display:block;">Mot de passe</label>
+        <input type="password" id="admin-password" required placeholder="••••••••">
+        <button type="submit" class="btn-submit" style="margin-top: 20px;">Se connecter</button>
+      </form>
+    </div>
+
+    <!-- dashboard section hidden by default -->
+    <div id="dashboard-section" style="display: none;">
+      <header>
+        <h1>Résultats et Visualisations</h1>
+        <p>Espace d'administration réservé à la DSI</p>
+      </header>
+
+      <div class="grid-charts">
+        <div class="chart-card">
+          <canvas id="chartFrequence"></canvas>
+        </div>
+        <div class="chart-card">
+          <canvas id="chartPole"></canvas>
+        </div>
+        <div class="chart-card">
+          <canvas id="chartNotes"></canvas>
+        </div>
+        <div class="chart-card">
+          <canvas id="chartGed"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

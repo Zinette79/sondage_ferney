@@ -1,0 +1,208 @@
+:root {
+  --bg-color: #F8F6F0;        /* fond légèrement adouci */
+  --card-bg: #FFFFFF;
+  --primary: #6B1D2F;        /* rouge bordeaux principal */
+  --primary-hover: #521523;  /* bordeaux foncé au survol */
+  --primary-light: #F2E8EB;  /* fond léger pour les sélections */
+  --accent: #D4A373;         /* beige doré */
+  --text-dark: #2C2C2E;
+  --text-muted: #666666;
+  --border-color: #E2DBD0;
+  --border-hover: #6B1D2F;
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(107, 29, 47, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* en-tête du formulaire */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+header p {
+  color: var(--text-muted);
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+/* titres de sections */
+h2 {
+  color: var(--primary);
+  font-size: 1.35rem;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* cartes de questions */
+.question-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(107, 29, 47, 0.1);
+}
+
+.question-card h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* groupe d'options (cases à cocher & boutons radio) */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-group label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.option-group label:hover {
+  background-color: var(--primary-light);
+  border-color: var(--border-color);
+}
+
+/* personnalisation des puces d'entrée */
+.option-group input[type="radio"],
+.option-group input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* zone de notation numérique (1 à 5) */
+.rating-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.rating-option {
+  flex: 1;
+  text-align: center;
+}
+
+.rating-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.rating-option input[type="radio"] {
+  display: none;
+}
+
+.rating-option input[type="radio"]:checked + label {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.rating-option label:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+/* champs de texte multilignes */
+textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+  border-color: var(--primary);
+}
+
+/* zone de notification de statut */
+#status-message {
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* bouton d'envoi */
+.btn-submit {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px 28px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 12px rgba(107, 29, 47, 0.2);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-submit:active {
+  transform: scale(0.99);
+}
